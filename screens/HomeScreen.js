@@ -19,10 +19,9 @@ export default class Menu extends Component {
         {id:1, title: "Mi Perfil",      color:"#FF4500", members:8,  image:"https://img.icons8.com/color/70/000000/name.png"},
         {id:1, title: "Vehiculos",     color:"#87CEEB", members:6,  image:"https://img.icons8.com/office/70/000000/home-page.png"},
         {id:2, title: "Contacto",     color:"#4682B4", members:12, image:"https://img.icons8.com/color/70/000000/two-hearts.png"} ,
-        {id:3, title: "Registro",   color:"#00BFFF", members:7,  image:"https://img.icons8.com/color/70/000000/classroom.png"} ,
-        {id:4, title: "Pedidos",   color:"#00FFFF", members:8,  image:"https://img.icons8.com/dusk/70/000000/checklist.png"} ,
-        {id:5, title: "Metodos de pago",    color:"#20B2AA", members:23, image:"https://img.icons8.com/dusk/70/000000/globe-earth.png"} ,
-        {id:6, title: "Historial", color:"#191970", members:45, image:"https://img.icons8.com/color/70/000000/to-do.png"} ,
+        {id:3, title: "Pedidos",   color:"#00FFFF", members:8,  image:"https://img.icons8.com/dusk/70/000000/checklist.png"} ,
+        {id:4, title: "Metodos de pago",    color:"#20B2AA", members:23, image:"https://img.icons8.com/dusk/70/000000/globe-earth.png"} ,
+        {id:5, title: "Historial", color:"#191970", members:45, image:"https://img.icons8.com/color/70/000000/to-do.png"} ,
         
       ]
     };
