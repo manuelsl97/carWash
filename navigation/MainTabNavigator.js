@@ -4,7 +4,7 @@ import { createStackNavigator, createBottomTabNavigator, createDrawerNavigator }
 
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
+import LoginView from '../screens/Login';
 import SettingsScreen from '../screens/SettingsScreen';
 import loginn from '../screens/login';
 const HomeStack = createStackNavigator({
@@ -25,12 +25,12 @@ HomeStack.navigationOptions = {
   ),
 };
 
-const LinksStack = createStackNavigator({
-  Links: LinksScreen,
+const LoginStack = createStackNavigator({
+  Login: LoginView,
 });
 
-LinksStack.navigationOptions = {
-  tabBarLabel: 'Pide',
+LoginStack.navigationOptions = {
+  tabBarLabel: 'Login',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
@@ -68,7 +68,7 @@ login.navigationOptions = {
 
 const BottomNavigator =  createBottomTabNavigator({
   HomeStack,
-  LinksStack,
+  LoginStack,
   SettingsStack,
   login,
 });
