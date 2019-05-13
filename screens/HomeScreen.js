@@ -7,16 +7,19 @@ import {
   Text,
   TouchableOpacity,
   View,
+  Button,
 } from 'react-native';
 import { WebBrowser } from 'expo';
 
 import { MonoText } from '../components/StyledText';
 
+
+
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
     header: null,
   };
-
+  
   render() {
     return (
       <View style={styles.container}>
@@ -40,15 +43,32 @@ export default class HomeScreen extends React.Component {
             <View style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
               <MonoText style={styles.codeHighlightText}>screens/HomeScreen.js</MonoText>
             </View>
-
+            
             <Text style={styles.getStartedText}>
               Change this text and your app will automatically reload.
             </Text>
+            <Button 
+            title=" Mis Automoviles "
+            onPress={this._handleHelpPress}
+            />
+            <Button 
+            title=" Pedidos "
+            onPress={this._handleHelpPress}
+            />
+            <Button 
+            title=" Historial de pedidos "
+            onPress={this._handleHelpPress}
+            />
+            <Button 
+            title=" Contacto "
+            onPress={this._handleHelpPress}
+            />
+           
           </View>
 
           <View style={styles.helpContainer}>
             <TouchableOpacity onPress={this._handleHelpPress} style={styles.helpLink}>
-              <Text style={styles.helpLinkText}>Help, it didn’t automatically reload!</Text>
+              <Text style={styles.helpLinkText}>iHelp, it didn’t automatically reload!</Text>
             </TouchableOpacity>
           </View>
         </ScrollView>
