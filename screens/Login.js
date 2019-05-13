@@ -4,59 +4,50 @@ import {
   Text,
   View,
   TextInput,
-  Button,
-  TouchableHighlight,
-  Image,
-  Alert
+  TouchableOpacity,
+  Alert,
+  Image
 } from 'react-native';
 
 export default class LoginView extends Component {
-
-  constructor(props) {
-    super(props);
-    state = {
-      email   : '',
-      password: '',
-    }
-  }
-
-  onClickListener = (viewId) => {
-    Alert.alert("Alert", "Button pressed "+viewId);
-  }
 
   render() {
     return (
       <View style={styles.container}>
         <View style={styles.inputContainer}>
-          <Image style={styles.inputIcon} source={{uri: 'https://png.icons8.com/message/ultraviolet/50/3498db'}}/>
+          <Image style={[styles.icon, styles.inputIcon]} source={{uri: 'https://png.icons8.com/password/androidL/40/3498db'}}/>
           <TextInput style={styles.inputs}
               placeholder="Correo Electronico"
               keyboardType="email-address"
-              underlineColorAndroid='transparent'
-              onChangeText={(email) => this.setState({email})}/>
+              underlineColorAndroid='transparent'/>
         </View>
         
         <View style={styles.inputContainer}>
-          <Image style={styles.inputIcon} source={{uri: 'https://png.icons8.com/key-2/ultraviolet/50/3498db'}}/>
+          <Image style={[styles.icon, styles.inputIcon]} source={{uri: 'https://png.icons8.com/envelope/androidL/40/3498db'}}/>
           <TextInput style={styles.inputs}
               placeholder="Contraseña"
               secureTextEntry={true}
-              underlineColorAndroid='transparent'
-              onChangeText={(password) => this.setState({password})}/>
+              underlineColorAndroid='transparent'/>
         </View>
+     
+        
 
-        <TouchableHighlight style={[styles.buttonContainer, styles.loginButton]} onPress={() => this.onClickListener('login')}>
+        <TouchableOpacity style={[styles.buttonContainer, styles.loginButton]}>
           <Text style={styles.loginText}>Login</Text>
-        </TouchableHighlight>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.buttonContainer}>
+            <Text>Registrarse</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={[styles.buttonContainer, styles.fabookButton]}>
+          <View style={styles.socialButtonContent}>
+            <Image style={styles.icon} source={{uri: 'https://png.icons8.com/facebook/androidL/40/FFFFFF'}}/>
+            <Text style={styles.loginText}>Entrar con Facebook</Text>
+          </View>
+        </TouchableOpacity>
 
         
-        <TouchableHighlight style={styles.buttonContainer} onPress={() => this.onClickListener('restore_password')}>
-            <Text>Forgot your password?</Text>
-        </TouchableHighlight>
-
-        <TouchableHighlight style={styles.buttonContainer} onPress={() => this.onClickListener('register')}>
-            <Text>Register</Text>
-        </TouchableHighlight>
       </View>
     );
   }
@@ -67,7 +58,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#DCDCDC',
+    backgroundColor: '#B0E0E6',
   },
   inputContainer: {
       borderBottomColor: '#F5FCFF',
@@ -76,7 +67,7 @@ const styles = StyleSheet.create({
       borderBottomWidth: 1,
       width:250,
       height:45,
-      marginBottom:20,
+      marginBottom:15,
       flexDirection: 'row',
       alignItems:'center'
   },
@@ -86,9 +77,11 @@ const styles = StyleSheet.create({
       borderBottomColor: '#FFFFFF',
       flex:1,
   },
-  inputIcon:{
+  icon:{
     width:30,
     height:30,
+  },
+  inputIcon:{
     marginLeft:15,
     justifyContent: 'center'
   },
@@ -102,9 +95,29 @@ const styles = StyleSheet.create({
     borderRadius:30,
   },
   loginButton: {
-    backgroundColor: "#00b5ec",
+    backgroundColor: '#3498db',
+  },
+  fabookButton: {
+    backgroundColor: "#3b5998",
+  },
+  googleButton: {
+    backgroundColor: "#ff0000",
   },
   loginText: {
     color: 'white',
+  },
+  restoreButtonContainer:{
+    width:250,
+    marginBottom:15,
+    alignItems: 'flex-end'
+  },
+  socialButtonContent:{
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center', 
+  },
+  socialIcon:{
+    color: "#FFFFFF",
+    marginRight:5
   }
 });
