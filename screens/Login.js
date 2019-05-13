@@ -1,5 +1,4 @@
-import React from 'react';
-
+import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
@@ -11,7 +10,7 @@ import {
   Alert
 } from 'react-native';
 
-export default class LoginView extends React.Component {
+export default class LoginView extends Component {
 
   constructor(props) {
     super(props);
@@ -20,9 +19,7 @@ export default class LoginView extends React.Component {
       password: '',
     }
   }
-  static navigationOptions = {
-    title: 'Login',
-  };
+
   onClickListener = (viewId) => {
     Alert.alert("Alert", "Button pressed "+viewId);
   }
@@ -33,7 +30,7 @@ export default class LoginView extends React.Component {
         <View style={styles.inputContainer}>
           <Image style={styles.inputIcon} source={{uri: 'https://png.icons8.com/message/ultraviolet/50/3498db'}}/>
           <TextInput style={styles.inputs}
-              placeholder="Correo Electronico"
+              placeholder="Email"
               keyboardType="email-address"
               underlineColorAndroid='transparent'
               onChangeText={(email) => this.setState({email})}/>
@@ -42,7 +39,7 @@ export default class LoginView extends React.Component {
         <View style={styles.inputContainer}>
           <Image style={styles.inputIcon} source={{uri: 'https://png.icons8.com/key-2/ultraviolet/50/3498db'}}/>
           <TextInput style={styles.inputs}
-              placeholder="Contraseña"
+              placeholder="Password"
               secureTextEntry={true}
               underlineColorAndroid='transparent'
               onChangeText={(password) => this.setState({password})}/>
@@ -52,10 +49,12 @@ export default class LoginView extends React.Component {
           <Text style={styles.loginText}>Login</Text>
         </TouchableHighlight>
 
-        
+        <TouchableHighlight style={styles.buttonContainer} onPress={() => this.onClickListener('restore_password')}>
+            <Text>Forgot your password?</Text>
+        </TouchableHighlight>
 
         <TouchableHighlight style={styles.buttonContainer} onPress={() => this.onClickListener('register')}>
-            <Text>Registrarse</Text>
+            <Text>Register</Text>
         </TouchableHighlight>
       </View>
     );
@@ -108,4 +107,3 @@ const styles = StyleSheet.create({
     color: 'white',
   }
 });
- 
