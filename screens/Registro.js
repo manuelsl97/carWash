@@ -1,5 +1,4 @@
-import React from 'react';
-
+import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
@@ -11,17 +10,18 @@ import {
   Alert
 } from 'react-native';
 
-export default class LoginView extends React.Component {
+export default class SignUpView extends Component {
 
   constructor(props) {
     super(props);
     state = {
+      fullName: '',
       email   : '',
       password: '',
     }
   }
   static navigationOptions = {
-    title: 'Login',
+    title: 'Registro',
   };
   onClickListener = (viewId) => {
     Alert.alert("Alert", "Button pressed "+viewId);
@@ -30,6 +30,15 @@ export default class LoginView extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+        <View style={styles.inputContainer}>
+          <Image style={styles.inputIcon} source={{uri: 'https://png.icons8.com/male-user/ultraviolet/50/3498db'}}/>
+          <TextInput style={styles.inputs}
+              placeholder="Nombre Completo"
+              keyboardType="email-address"
+              underlineColorAndroid='transparent'
+              onChangeText={(fullName) => this.setState({fullName})}/>
+        </View>
+
         <View style={styles.inputContainer}>
           <Image style={styles.inputIcon} source={{uri: 'https://png.icons8.com/message/ultraviolet/50/3498db'}}/>
           <TextInput style={styles.inputs}
@@ -48,14 +57,8 @@ export default class LoginView extends React.Component {
               onChangeText={(password) => this.setState({password})}/>
         </View>
 
-        <TouchableHighlight style={[styles.buttonContainer, styles.loginButton]} onPress={() => this.onClickListener('login')}>
-          <Text style={styles.loginText}>Login</Text>
-        </TouchableHighlight>
-
-        
-
-        <TouchableHighlight style={styles.buttonContainer} onPress={() => this.onClickListener('register')}>
-            <Text>Registrarse</Text>
+        <TouchableHighlight style={[styles.buttonContainer, styles.signupButton]} onPress={() => this.onClickListener('sign_up')}>
+          <Text style={styles.signUpText}>Registrarse</Text>
         </TouchableHighlight>
       </View>
     );
@@ -67,7 +70,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#DCDCDC',
+    backgroundColor: '#00b5ec',
   },
   inputContainer: {
       borderBottomColor: '#F5FCFF',
@@ -101,10 +104,10 @@ const styles = StyleSheet.create({
     width:250,
     borderRadius:30,
   },
-  loginButton: {
-    backgroundColor: "#00b5ec",
+  signupButton: {
+    backgroundColor: "#FF4DFF",
   },
-  loginText: {
+  signUpText: {
     color: 'white',
   }
 });
